@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Skrift type (Nunito)-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+    }
+
+    .script {
+
+    }
+
+    button {
+      background-color: #4A4A4B;
+      color: #FFFFFF;
+      border: none;
+
+      padding: 10px;
+    }
+
+    button:hover {
+      background-color: #5D5D60;
+      color: #FFFFFF;
+      border: none;
+    }
+  </style>
+
+<!-- https://tympanus.net/Development/CreativeButtons/ -->
+
+
+
+
+
+
+
+
+
+  <style>
+    table {
+      background-color: #4A4A4B;
+    }
+
+    th {
+      background-color: #4A4A4B;
+      padding: 0 10px;
+      color: #FFFFFF;
+    }
+
+    td {
+      background-color: #F8F9FA;
+      padding: 0 10px;
+    }
+  </style>
+
+
+
+  <div class="script">
+    <h1 style="margin:25px 10%; width:80%;">Omregning af grader og radianer</h1>
+
+    <table style="margin: 0 10%; width:auto;">
+      <tr>
+        <th>Navn</th>
+        <th>Symbol</th>
+        <th>Formel</th>
+      </tr>
+      <tr>
+        <td style="text-align:center;">Grader</td>
+        <td style="text-align:center;">°</td>
+        <td style="text-align:center;">Grader = radian ⋅ 180/π</td>
+      </tr>
+      <tr>
+        <td style="text-align:center;">Radianer</td>
+        <td style="text-align:center;">rad</td>
+        <td style="text-align:center;">Radian = grader ⋅ π/180</td>
+      </tr>
+    </table>
+
+    <h2 style="margin:25px 10%; width:80%;">Script:</h2>
+
+
+
+    <table style="margin: 0 10%; width:auto; background-color:#4A4A4B;">
+      <tr>
+        <td style="background-color:#4A4A4B; color:#FFFFFF;"><center><b>Grader:</b></center></td>
+        <td style="background-color:#F8F9FA; padding: 0 0 0 10px;"><b>Input/Output: </b><input type="number" id="grader" value=""></td>
+      </tr>
+      <tr>
+        <td style="background-color:#4A4A4B; color:#FFFFFF;"><center><b>Radianer:</b></center></td>
+        <td style="background-color:#F8F9FA; padding: 0 0 0 10px;"><b>Input/Output: </b><input type="number" id="radianer" value=""></td>
+      </tr>
+    </table><br>
+    <button style="margin:5px 10%;" onclick="grader_radianer()"><b>Udregn</b></button><br>
+    <button style="margin:5px 10%;" onclick="nulstil()"><b>Nulstil</b></button><br><br>
+
+    <div style="margin:5px 10%;">
+      <h2 id="mellemregning"></h2><br>
+      <p id="1"></p>
+      <p id="2"></p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <script>
+    function grader_radianer() {
+
+
+
+      if (document.getElementById("grader").value != 0) {
+        var grader = document.getElementById("grader").value;
+
+        var radianer_out = grader * (Math.PI / 180);
+
+        document.getElementById("radianer").value = radianer_out;
+
+
+
+        document.getElementById("mellemregning").innerHTML = "Radianer:";
+        document.getElementById("1").innerHTML = "Mellemregninger: ";
+        document.getElementById("2").innerHTML = grader + "°" + " ⋅" + " π / 180 = " + radianer_out + " rad";
+      }
+
+
+
+      else if (document.getElementById("radianer").value != 0) {
+        var radianer = document.getElementById("radianer").value;
+
+        var grader_out = radianer * (180 / Math.PI);
+
+        document.getElementById("grader").value = grader_out;
+
+
+
+        document.getElementById("mellemregning").innerHTML = "Grader:";
+        document.getElementById("1").innerHTML = "Mellemregninger: ";
+        document.getElementById("2").innerHTML = radianer + " ⋅" + " 180 / π = " + grader_out + "°";
+      }
+    }
+
+
+
+
+
+    function nulstil() {
+
+
+
+      if (document.getElementById("grader").value != 0) {
+
+        var nul = 0;
+
+        document.getElementById("grader").value = nul;
+      }
+
+
+
+      if (document.getElementById("radianer").value != 0) {
+
+        var nul = 0;
+
+        document.getElementById("radianer").value = nul;
+      }
+    }
+  </script>
+
+
+
+
+</body>
+</html>
